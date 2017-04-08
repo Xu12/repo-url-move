@@ -3,7 +3,6 @@ for x in $(sudo find ~ -name "*.git"  -type d); do
   remoteip=`git remote -v | grep 'https://github.com/[jJ]effsan[cC]/' `;
   remoteip=${remoteip/(fetch)*/\ }
   oldip=${remoteip/origin/\ }
-  # oldip=${remoteip/upstream/\ }
   
   if [ ! -z "$oldip" ]; then
 	  newip=${oldip//[Jj]effsan[Cc]/wang-chen}
@@ -12,7 +11,6 @@ for x in $(sudo find ~ -name "*.git"  -type d); do
 	  echo
 	  git remote remove origin
 	  git remote add origin $newip
-	  # git remote add upstream $oldip
   fi
   
 done
